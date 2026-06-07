@@ -1,0 +1,269 @@
+# ==========================================
+# SkillSphere AI - Career Predictor
+# ==========================================
+
+class CareerPredictor:
+
+    def __init__(self):
+
+        self.career_database = {
+
+            "Software Engineer": {
+                "skills": [
+                    "Python",
+                    "Java",
+                    "C++",
+                    "Data Structures",
+                    "Algorithms",
+                    "Git"
+                ]
+            },
+
+            "Frontend Developer": {
+                "skills": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "React",
+                    "Bootstrap"
+                ]
+            },
+
+            "Backend Developer": {
+                "skills": [
+                    "Python",
+                    "Java",
+                    "Flask",
+                    "Django",
+                    "SQL",
+                    "API"
+                ]
+            },
+
+            "Full Stack Developer": {
+                "skills": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "React",
+                    "Python",
+                    "SQL"
+                ]
+            },
+
+            "Data Analyst": {
+                "skills": [
+                    "Python",
+                    "SQL",
+                    "Excel",
+                    "Power BI",
+                    "Statistics"
+                ]
+            },
+
+            "Data Scientist": {
+                "skills": [
+                    "Python",
+                    "Machine Learning",
+                    "Statistics",
+                    "Pandas",
+                    "NumPy",
+                    "SQL"
+                ]
+            },
+
+            "Machine Learning Engineer": {
+                "skills": [
+                    "Python",
+                    "Machine Learning",
+                    "Deep Learning",
+                    "TensorFlow",
+                    "SQL"
+                ]
+            },
+
+            "Cloud Engineer": {
+                "skills": [
+                    "AWS",
+                    "Azure",
+                    "Docker",
+                    "Linux",
+                    "Kubernetes"
+                ]
+            },
+
+            "Cyber Security Analyst": {
+                "skills": [
+                    "Networking",
+                    "Cyber Security",
+                    "Linux",
+                    "Ethical Hacking"
+                ]
+            },
+
+            "DevOps Engineer": {
+                "skills": [
+                    "Docker",
+                    "Jenkins",
+                    "Linux",
+                    "AWS",
+                    "Git"
+                ]
+            }
+        }
+
+    # ==========================================
+    # Career Prediction
+    # ==========================================
+
+    def predict_career(
+        self,
+        user_skills,
+        user_interests=None
+    ):
+
+        scores = {}
+
+        user_skills = [
+            skill.strip().lower()
+            for skill in user_skills
+        ]
+
+        for career, data in self.career_database.items():
+
+            required_skills = [
+                skill.lower()
+                for skill in data["skills"]
+            ]
+
+            score = 0
+
+            for skill in user_skills:
+
+                if skill in required_skills:
+                    score += 1
+
+            scores[career] = score
+
+        sorted_careers = sorted(
+            scores.items(),
+            key=lambda x: x[1],
+            reverse=True
+        )
+
+        return sorted_careers[:5]
+
+    # ==========================================
+    # Career Readiness Score
+    # ==========================================
+
+    def career_readiness(
+        self,
+        user_skills,
+        target_career
+    ):
+
+        if target_career not in self.career_database:
+
+            return {
+                "score": 0,
+                "missing_skills": []
+            }
+
+        required_skills = (
+            self.career_database[target_career]["skills"]
+        )
+
+        matched = 0
+        missing = []
+
+        for skill in required_skills:
+
+            if skill.lower() in [
+                s.lower()
+                for s in user_skills
+            ]:
+
+                matched += 1
+
+            else:
+
+                missing.append(skill)
+
+        score = int(
+            (matched / len(required_skills)) * 100
+        )
+
+        return {
+            "score": score,
+            "missing_skills": missing
+        }
+
+    # ==========================================
+    # Career Recommendations
+    # ==========================================
+
+    def get_recommendations(
+        self,
+        user_skills
+    ):
+
+        predictions = self.predict_career(
+            user_skills
+        )
+
+        recommendations = []
+
+        for career, score in predictions:
+
+            recommendations.append({
+                "career": career,
+                "match_score": score
+            })
+
+        return recommendations
+
+
+# ==========================================
+# Testing
+# ==========================================
+
+if __name__ == "__main__":
+
+    predictor = CareerPredictor()
+
+    skills = [
+        "Python",
+        "SQL",
+        "Pandas",
+        "Machine Learning",
+        "Statistics"
+    ]
+
+    print("\n===== Career Prediction =====\n")
+
+    careers = predictor.predict_career(skills)
+
+    for career, score in careers:
+
+        print(
+            f"{career} -> Match Score: {score}"
+        )
+
+    print("\n===== Career Readiness =====\n")
+
+    result = predictor.career_readiness(
+        skills,
+        "Data Scientist"
+    )
+
+    print(
+        "Readiness Score:",
+        result["score"],
+        "%"
+    )
+
+    print(
+        "Missing Skills:",
+        result["missing_skills"]
+    )

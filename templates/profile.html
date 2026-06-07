@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Profile</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="profile-card">
+
+        <h2>Profile Information</h2>
+
+        <p><strong>Name:</strong> {{ user.name }}</p>
+
+        <p><strong>Email:</strong> {{ user.email }}</p>
+
+        <form method="POST">
+
+            <textarea
+                name="skills"
+                placeholder="Enter Skills">
+                {{ user.skills }}
+            </textarea>
+
+            <textarea
+                name="interests"
+                placeholder="Enter Interests">
+                {{ user.interests }}
+            </textarea>
+
+            <button class="btn btn-primary">
+                Update Profile
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

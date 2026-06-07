@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Recommendations</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Recommended Learning Resources</h2>
+
+    {% for course in recommendations %}
+
+    <div class="recommendation-card">
+
+        <h3>{{ course }}</h3>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

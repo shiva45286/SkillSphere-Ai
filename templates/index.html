@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SkillSphere AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="navbar">
+    <h1>SkillSphere AI</h1>
+
+    <div class="nav-links">
+        <a href="/">Home</a>
+<a href="/register">Register</a>
+<a href="/login">Login</a>
+<a href="/dashboard">Dashboard</a>
+<a href="/portfolio">Portfolio</a>
+<a href="/resume-builder">Resume Builder</a>
+<a href="/resume-upload">Resume Upload</a>
+</div>
+
+<div class="container">
+
+    <div class="hero">
+
+        <h2>AI Powered Skill Gap Analysis</h2>
+
+        <p>
+            Discover missing skills, get AI recommendations,
+            and improve your career opportunities.
+        </p>
+
+        <a href="/register" class="btn btn-primary">
+            Get Started
+        </a>
+
+    </div>
+
+</div>
+<div class="hero">
+
+    <img
+    src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200"
+    alt="SkillSphere AI"
+    class="hero-image">
+
+    <h2>SkillSphere AI</h2>
+
+    <p>
+        AI-Powered Skill Gap Analysis and Career Guidance Platform
+    </p>
+
+    <a href="/register" class="btn btn-primary">
+        Get Started
+    </a>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

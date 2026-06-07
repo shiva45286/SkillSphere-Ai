@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <h1>SkillSphere AI</h1>
+
+    <div class="nav-links">
+
+        <a href="/dashboard">Dashboard</a>
+        <a href="/profile">Profile</a>
+        <a href="/recommendations">Recommendations</a>
+        <a href="/portfolio">Portfolio</a>
+        <a href="/resume-builder">Resume Builder</a>
+        <a href="/resume-upload">Resume Upload</a>
+
+    </div>
+
+</div>
+
+<div class="container">
+
+    <h2>Welcome to SkillSphere AI</h2>
+
+    <div class="stats">
+
+        <div class="stat-box">
+
+            <h2 id="skillsCount">10</h2>
+
+            <p>Skills</p>
+
+        </div>
+
+        <div class="stat-box">
+
+            <h2 id="courseCount">5</h2>
+
+            <p>Courses</p>
+
+        </div>
+
+    </div>
+
+    <br>
+
+    <h2>Skill Analytics Dashboard</h2>
+
+    <div class="card">
+        <canvas id="skillsChart"></canvas>
+    </div>
+
+    <br>
+
+    <div class="card">
+        <canvas id="careerChart"></canvas>
+    </div>
+
+</div>
+
+<script>
+
+new Chart(
+document.getElementById("skillsChart"),
+{
+    type: "bar",
+
+    data: {
+
+        labels: [
+            "Python",
+            "Java",
+            "SQL",
+            "Flask"
+        ],
+
+        datasets: [{
+
+            label: "Skill Level",
+
+            data: [
+                90,
+                80,
+                70,
+                85
+            ]
+
+        }]
+    }
+});
+
+new Chart(
+document.getElementById("careerChart"),
+{
+    type: "pie",
+
+    data: {
+
+        labels: [
+            "Completed",
+            "Remaining"
+        ],
+
+        datasets: [{
+
+            data: [
+                70,
+                30
+            ]
+
+        }]
+    }
+});
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Resume Builder | SkillSphere AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='css/style.css') }}">
+
+    <style>
+
+        body{
+            background:#f4f7fc;
+            font-family:Arial,sans-serif;
+        }
+
+        .resume-container{
+            width:90%;
+            max-width:1000px;
+            margin:30px auto;
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0px 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h1{
+            text-align:center;
+            color:#2563eb;
+            margin-bottom:30px;
+        }
+
+        .form-group{
+            margin-bottom:20px;
+        }
+
+        label{
+            display:block;
+            margin-bottom:8px;
+            font-weight:bold;
+        }
+
+        input,
+        textarea,
+        select{
+
+            width:100%;
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            font-size:15px;
+
+        }
+
+        textarea{
+            min-height:120px;
+        }
+
+        .btn{
+            background:#2563eb;
+            color:white;
+            padding:12px 25px;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+        .btn:hover{
+            background:#1e40af;
+        }
+
+        .section-title{
+            color:#2563eb;
+            margin-top:25px;
+            margin-bottom:15px;
+            border-bottom:2px solid #2563eb;
+            padding-bottom:5px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="resume-container">
+
+    <h1>AI Resume Builder</h1>
+
+    <form action="/generate-resume"
+          method="POST">
+
+        <h2 class="section-title">
+            Personal Information
+        </h2>
+
+        <div class="form-group">
+
+            <label>Full Name</label>
+
+            <input type="text"
+                   name="name"
+                   required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Email</label>
+
+            <input type="email"
+                   name="email"
+                   required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Phone</label>
+
+            <input type="text"
+                   name="phone"
+                   required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>LinkedIn</label>
+
+            <input type="text"
+                   name="linkedin">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>GitHub</label>
+
+            <input type="text"
+                   name="github">
+
+        </div>
+
+        <h2 class="section-title">
+            Career Objective
+        </h2>
+
+        <div class="form-group">
+
+            <textarea
+                name="objective"
+                placeholder="Write your career objective">
+            </textarea>
+
+        </div>
+
+        <h2 class="section-title">
+            Education
+        </h2>
+
+        <div class="form-group">
+
+            <textarea
+                name="education"
+                placeholder="B.Tech Computer Science Engineering - MIT ADT University">
+            </textarea>
+
+        </div>
+
+        <h2 class="section-title">
+            Skills
+        </h2>
+
+        <div class="form-group">
+
+            <textarea
+                name="skills"
+                placeholder="Python, Java, SQL, Flask">
+            </textarea>
+
+        </div>
+
+        <h2 class="section-title">
+            Projects
+        </h2>
+
+        <div class="form-group">
+
+            <textarea
+                name="projects"
+                placeholder="SkillSphere AI - AI based skill recommendation platform">
+            </textarea>
+
+        </div>
+
+        <h2 class="section-title">
+            Experience
+        </h2>
+
+        <div class="form-group">
+
+            <textarea
+                name="experience"
+                placeholder="Internship details">
+            </textarea>
+
+        </div>
+
+        <h2 class="section-title">
+            Certifications
+        </h2>
+
+        <div class="form-group">
+
+            <textarea
+                name="certifications"
+                placeholder="Python Certificate, Java Certificate">
+            </textarea>
+
+        </div>
+
+        <h2 class="section-title">
+            Achievements
+        </h2>
+
+        <div class="form-group">
+
+            <textarea
+                name="achievements"
+                placeholder="Hackathon Winner, Coding Contest Rank">
+            </textarea>
+
+        </div>
+
+        <center>
+
+            <button type="submit"
+                    class="btn">
+
+                Generate Resume
+
+            </button>
+
+        </center>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>

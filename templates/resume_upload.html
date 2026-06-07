@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Resume Upload | SkillSphere AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='css/style.css') }}">
+
+    <style>
+
+        body{
+            background:#f4f7fc;
+            font-family:Arial,sans-serif;
+        }
+
+        .upload-container{
+
+            max-width:800px;
+            margin:50px auto;
+            background:white;
+            padding:40px;
+            border-radius:15px;
+            box-shadow:0px 4px 12px rgba(0,0,0,0.1);
+
+        }
+
+        h1{
+            text-align:center;
+            color:#2563eb;
+            margin-bottom:25px;
+        }
+
+        .upload-box{
+
+            border:3px dashed #2563eb;
+            padding:50px;
+            text-align:center;
+            border-radius:15px;
+            background:#f8faff;
+
+        }
+
+        .upload-box img{
+
+            width:100px;
+            margin-bottom:15px;
+
+        }
+
+        .upload-box p{
+
+            font-size:18px;
+            color:#555;
+
+        }
+
+        input[type="file"]{
+
+            margin-top:20px;
+
+        }
+
+        .btn{
+
+            background:#2563eb;
+            color:white;
+            border:none;
+            padding:12px 30px;
+            border-radius:8px;
+            cursor:pointer;
+            margin-top:20px;
+            font-size:16px;
+
+        }
+
+        .btn:hover{
+
+            background:#1e40af;
+
+        }
+
+        .features{
+
+            margin-top:30px;
+
+        }
+
+        .feature{
+
+            background:#eef4ff;
+            padding:15px;
+            border-radius:10px;
+            margin-bottom:10px;
+
+        }
+
+        .feature h3{
+
+            color:#2563eb;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="upload-container">
+
+    <h1>AI Resume Analyzer</h1>
+
+    <form action="/upload-resume"
+          method="POST"
+          enctype="multipart/form-data">
+
+        <div class="upload-box">
+
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                 alt="Resume">
+
+            <h2>Upload Your Resume</h2>
+
+            <p>
+                Upload PDF or DOCX Resume
+            </p>
+
+            <input type="file"
+                   name="resume"
+                   accept=".pdf,.doc,.docx"
+                   required>
+
+            <br>
+
+            <button type="submit"
+                    class="btn">
+
+                Analyze Resume
+
+            </button>
+
+        </div>
+
+    </form>
+
+    <div class="features">
+
+        <div class="feature">
+
+            <h3>Skill Extraction</h3>
+
+            <p>
+                Automatically identifies technical
+                and soft skills from your resume.
+            </p>
+
+        </div>
+
+        <div class="feature">
+
+            <h3>Skill Gap Analysis</h3>
+
+            <p>
+                Detects missing skills and suggests
+                improvements.
+            </p>
+
+        </div>
+
+        <div class="feature">
+
+            <h3>Career Recommendation</h3>
+
+            <p>
+                Suggests suitable career paths
+                based on your skills.
+            </p>
+
+        </div>
+
+        <div class="feature">
+
+            <h3>Resume Score</h3>
+
+            <p>
+                Provides ATS-style resume score
+                and improvement tips.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

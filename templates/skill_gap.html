@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Skill Gap Analysis</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='css/style.css') }}">
+
+    <style>
+
+        body{
+            background:#f4f7fc;
+            font-family:Arial,sans-serif;
+        }
+
+        .container{
+            width:90%;
+            max-width:1100px;
+            margin:auto;
+            margin-top:30px;
+        }
+
+        .header{
+            text-align:center;
+            margin-bottom:30px;
+        }
+
+        .header h1{
+            color:#2563eb;
+        }
+
+        .card{
+            background:white;
+            padding:25px;
+            border-radius:15px;
+            box-shadow:0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom:20px;
+        }
+
+        .skill-tag{
+            display:inline-block;
+            background:#2563eb;
+            color:white;
+            padding:10px 15px;
+            margin:5px;
+            border-radius:20px;
+        }
+
+        .missing-skill{
+            display:inline-block;
+            background:#ef4444;
+            color:white;
+            padding:10px 15px;
+            margin:5px;
+            border-radius:20px;
+        }
